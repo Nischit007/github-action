@@ -1,0 +1,14 @@
+name: Echo while pushing to echo branch
+
+on:
+  push:
+    branches:
+      - echo
+
+jobs:
+  echo-on-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Echo while pushing to branch echo
+        run: echo "Hello world"
