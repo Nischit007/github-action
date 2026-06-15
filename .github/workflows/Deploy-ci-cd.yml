@@ -14,7 +14,7 @@ jobs:
         run: |
 
           if [ -z "${{ secrets.DISCORD_WEBHOOK }}" ]; then
-            echo "Secret is EMPTY"
+            echo "Secret is EMPTY "
             exit 1
           else
             echo "Secret exists" 
