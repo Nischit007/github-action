@@ -17,7 +17,7 @@ jobs:
             echo "Secret is EMPTY"
             exit 1
           else
-            echo "Secret exists"
+            echo "Secret exists" 
           fi
 
           AUTHOR="${{ github.actor }}"
