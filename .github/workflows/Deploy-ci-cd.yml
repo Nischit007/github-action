@@ -13,13 +13,6 @@ jobs:
       - name: Send notification to Discord
         run: |
 
-          if [ -z "${{ secrets.DISCORD_WEBHOOK }}" ]; then
-            echo "Secret is EMPTY "
-            exit 1
-          else
-            echo "Secret exists" 
-          fi
-
           AUTHOR="${{ github.actor }}"
           BRANCH="${{ github.ref_name }}"
           MESSAGE="${{ github.event.head_commit.message }}"
