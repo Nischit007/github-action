@@ -12,3 +12,21 @@ jobs:
     steps:
       - name: Echo while pushing to branch echo
         run: echo "Hello world"
+
+  send-notification-to-discord:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Send notification to discord
+        run: |
+          AUTHOR="${{ github.actor }}"
+          BRANCH="${{ github.ref_name }}"
+          MESSAGE="${{ github.event.head_commit.message }}"
+           REPO="${{ github.repository }}"
+           COMMIT_URL="${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}"
+
+           curl -v \
+             -H "Content-Type: application/json" \
+             -X POST \
+             -d "{\"content\":\"🚀 New push to $BRANCH\n👤 Author: $AUTHOR\n📦 Repository: $REPO\n📝 Commit: $MESSAGE\n🔗 $COMMIT_URL\n✅ Status: Success\"}" \
+             "${{ secrets.DISCORD_WEBHOOK }}"
