@@ -1,0 +1,18 @@
+name: Running small script
+
+on:
+  push:
+    branches:
+      - main
+      - 'feature/*'
+
+jobs:
+  small-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clone the github repo
+        uses: actions/checkout@v4
+
+      - name: Run docker compose
+        run: docker-compose up --build

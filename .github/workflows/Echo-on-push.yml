@@ -16,6 +16,7 @@ jobs:
   send-notification-to-discord:
     runs-on: ubuntu-latest
 
+    
     steps:
       - name: Send notification to discord
         run: |
